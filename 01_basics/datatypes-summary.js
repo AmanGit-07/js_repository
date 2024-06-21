@@ -36,3 +36,31 @@ console.log(typeof anotherId);  //symbol
 console.log(typeof myFunction); //function but it is called as object function
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// stack (primitive), heap (non-primitive)
+
+// stack memory example
+// here copy of the variable myYoutubename is passing to the anothername variable that is why only the anothername value remains same
+let myYoutubename="AmanBhatiadotcom";
+
+let anothername=myYoutubename;
+anothername="helloworld";
+
+console.log(myYoutubename);
+console.log(anothername);
+
+// heap memory example
+// here changes that we are doing in the userTwo are changing the actual key of the object which is userOne
+let userOne={
+    email: "hello@yahoo.com",
+    id: 12324
+}
+
+let userTwo=userOne;
+userTwo.email="hitesh@google.com";
+console.log(userOne.email);
+console.log(userTwo.email);
