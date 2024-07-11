@@ -29,5 +29,5 @@ let state;      //it is undefined
 console.log(typeof name);
 console.log(typeof(age));
 
-onsole.log(typeof undefined); //this will give undefined
+console.log(typeof undefined); //this will give undefined
 console.log(typeof null); //this will give object as output
