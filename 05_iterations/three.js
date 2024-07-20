@@ -14,16 +14,6 @@ for (const greet of greetings) {
     //console.log(`Each char is ${greet}`)
 }
 
-// whereas in case of OBJECTS "for in" loop is used
-const forof_obj={
-    name:"ahd",
-    age:23,
-    email:"ahd@gmail.com"
-}
-for (const property in forof_obj){
-    // console.log(`${property} : ${forof_obj[property]}`);
-}
-
 
 // Maps
 // It is similar to objects.
