@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    console.log(parent.children);           //this will give you HTMLCollection
+    // console.log(parent.children[1].innerHTML);
+    const childsofparent=parent.children;
+    // childsofparent.forEach((e) => {    //This will give error because forEach is not applicable on HTMLCollection
+    //     console.log(e.innerHTML)
+    // });
+    const childsarr=Array.from(childsofparent);
+    // console.log(childsarr)           //now we can apply forEach
+    childsarr.forEach((e)=> console.log(e.innerHTML));
+
+    // ALSO NORMAL FOR LOOP IS APPLICABLE ON ANY FORM OF OBJECT
+    // for (let i = 0; i < childsofparent.length; i++) {
+    //      console.log(childsofparent[i].innerHTML);
+    // }
+    childsofparent[1].style.color = "orange"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling);
+
+    console.log("NODES: ", parent.childNodes);  //this will give you the NodeList
+    // .childNodes gives all the Nodes possible of the complex javascript tree structure (text, comment, element)
+</script>
+</html>
