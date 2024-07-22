@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="inptname" id="name1">
+        <input type="password" name="inptname" id="name2">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+
+    <script>
+        // Note:- NodeList is not an array but it behaves as and can run sum of the methods on it like "forEach" etc. and we cannot execute the map() on NodeList, to do so we need to convert the NodeList to array and there are several ways to do so.
+        const hdng=document.getElementById('title').getAttribute('id');
+        document.getElementById('title').setAttribute('class', 'test heading'); //it will overrides the preivious class/es and sets the new class/es test
+        console.log(hdng);
+        console.log(document.getElementById('title').innerText);
+        console.log(document.getElementById('title').textContent);
+        console.log(document.getElementById('title').innerHTML);
+
+        const inpttag=document.querySelector('input[type="password"]');
+        console.log(inpttag);
+        // console.log(document.querySelector('p:first-child'));
+
+        
+        // my way of changing the backgroundcolor of list one 
+        // const myul=document.querySelectorAll('li');
+        // console.log(myul);
+        // myul[0].style.backgroundColor="red";
+        // another way of doing the same
+        const myul=document.querySelector('ul');
+        console.log(myul);
+        //it automatically selects the first list-item, which means that querySelector() method will selects only the first element apart from the list of elements having same attribute.
+        myul.querySelector('li').style.backgroundColor='red';
+        myul.querySelector('li').style.padding='10px';
+
+        // Note-2: HTMLCollection also behaves as NodeList and we cannot perform actions on it like array (ex: forEach() method cannot be applied), so we need to convert it as well into array.
+        // It can be converted with the help of one function Array.from()
+        const tempClassList=document.getElementsByClassName('list-item');
+        console.log(tempClassList)  //it gives HTMLCollection(4)
+        const classList=Array.from(tempClassList);
+        console.log(classList);     //now it gives an Array and we can apply various methods like forEach, etc.
+        classList.forEach((e)=> console.log(e));
+      </script>
+  </body>
+</html>
