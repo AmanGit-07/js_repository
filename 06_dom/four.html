@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li class="imp">Javascript</li>
+    </ul>
+</body>
+<script>
+    // function to create an element (here basically of list type) and append it in another element
+    // how this function works? it basically traverse the whole element from start again and again to append any new child so makes it quite slow.
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // here's the optimized approach to do so, Here we are using the createTextNode to create a text node and append the text node instead of using innerHTML. It reduces the time of traversing the whole tree.
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    addOptiLanguage('golang')
+
+    //Edit
+    const secondLang = document.querySelector("li:nth-child(2)")    //editing the second list item created
+    console.log(secondLang);
+    //secondLang.innerHTML = "Mojo"
+    // replacing another newly created element is more optimized than using innerHTML
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+    secondLang.classList.add('imp');
+
+    //edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li class="imp">TypeScript</li>'
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()    
+
+</script>
+</html>
