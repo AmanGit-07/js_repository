@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121; color: white;">
+    <!-- these are the different states of the readysatates of the api 
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+    <div class="card" style="width: 18rem; background-color:#7c777154; padding: 10px;">
+      <img class="card-img-top" src="..." alt="Card image cap" style="width: 100%;"/>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a class="btn btn-primary gitbtn" style="color: white;">Github</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    // here we are using XMLHttRequest() to play with api this is an old way of doing it nowadays we use fetch
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    // this function fires up whenever the readystate changes of the given requestUrl
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        console.log(this.responseText);
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data);
+        console.log(data.followers);
+        console.log(data.avatar_url);
+        console.log(data.bio);
+        document.querySelector('.card-img-top').setAttribute('src', 'https://avatars.githubusercontent.com/u/11613311?v=4')
+        document.querySelector('.card-text').innerHTML=data.bio;
+        document.querySelector('.card-title').innerHTML=data.name;
+        document.querySelector('.gitbtn').setAttribute('href', `${data.html_url}`);
+      }
+    };
+    xhr.send();
+  </script>
+</html>
