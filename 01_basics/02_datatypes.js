@@ -31,3 +31,16 @@ console.log(typeof(age));
 
 console.log(typeof undefined); //this will give undefined
 console.log(typeof null); //this will give object as output
+
+// non-primitive data types
+// Object
+// Array
+// function
+// Set
+// Map
+// Date
+// Error
+// Promise
+// WeakMap
+// WeakSet
+// RegExp

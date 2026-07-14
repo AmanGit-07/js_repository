@@ -25,7 +25,7 @@ let someNumber = 33
 
 let stringNumber = String(someNumber)
 console.log(stringNumber);
-console.log(typeof stringNumber);
+console.log(typeof stringNumber == "string" ? "yes" : "no");
 
 
 // OPERATIONS
@@ -59,7 +59,7 @@ console.log(+"");       //0
 
 let num1, num2, num3
 
-num1 = num2 = num3 = 2 + 2
+num1 = num2 = num3 = 2 + 2 //not a good way to declare same value to different multiple variables, code quality not good
 
 let gameCounter = 100
 ++gameCounter;
