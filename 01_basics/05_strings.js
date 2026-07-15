@@ -5,9 +5,10 @@ const repoCount = 50
 
 console.log(`Hello my name is ${name} and my repo count is ${repoCount}`);
 
+// this is another way of declaring a string using String object in JS.
 const gameName = new String('hitesh-hc-com')
 
-console.log(gameName[0]);
+console.log(gameName[0]);//since, here string acts an object therefore, we can access the value of a particular key of an object like this way as well.
 console.log(gameName.__proto__);    //{}
 
 console.log(gameName.length);
