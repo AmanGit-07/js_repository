@@ -37,3 +37,12 @@ console.log("B ", myArr);
 const myn2 = myArr.splice(1, 3)     //splice method changes the original array as well and returns the spliced array as well to
 console.log(myn2);
 console.log("C ", myArr);
+
+const array = [0,1,2,3,4,5];
+const slicedArr = array.slice(1,3);
+console.log("Sliced array =",slicedArr);
+console.log("Original array =", array);
+
+const splicedArr = array.splice(1,3);
+console.log("Spliced array =",splicedArr);
+console.log("Original array =", array);

@@ -10,7 +10,7 @@ console.log(typeof myDate);         //object
 let myCreatedDate = new Date("01-14-2023")
 // console.log(myCreatedDate.toLocaleString());
 
-let myTimeStamp = Date.now()
+let myTimeStamp = Date.now()        //exact abhi ki date dega
 
 // console.log(myTimeStamp);
 // console.log(myCreatedDate.getTime());
@@ -21,6 +21,6 @@ console.log(newDate);
 console.log(newDate.getMonth() + 1);
 console.log(newDate.getDay());
 
-// `${newDate.getDay()} and the time `
+// `${newDate.getDay()} and the time `      //this method of writing string inside backticks is called string Interpolation
 
 console.log(newDate.toLocaleString('default'));
