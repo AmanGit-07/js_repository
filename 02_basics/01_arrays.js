@@ -3,7 +3,9 @@
 const myArr = [0, 1, 2, 3, 4, 5]
 const myHeors = ["shaktiman", "naagraj"]
 
-const myArr2 = new Array(1, 2, 3, 4)
+const myArr2 = new Array(1, 2, 3, 4);
+// const dummyArray = new Array(myArr);
+// console.log("DUMMY ARRAY ---------->>>>>>>>", dummyArray);  //this will give new 2-d array
 // console.log(myArr[1]);
 
 // Array methods
@@ -18,7 +20,9 @@ myArr.shift()
 console.log(myArr.includes(9));
 console.log(myArr.indexOf(3));
 
-const newArr = myArr.join()
+const newArr = myArr.join();
+// join() gives the new string of all the elements of the original array separated by comma by default
+// if join(".") joins all the elements by a dot
 
 console.log(myArr);         //[0, 1, 2, 3, 4, 5, 6]
 console.log( newArr);       //0,1,2,3,4,5,6
@@ -28,13 +32,13 @@ console.log(typeof newArr);     //string (though gives the output in the form of
 
 console.log("A ", myArr);
 
-const myn1 = myArr.slice(1, 3)     //slice method does not affect the original array but returns the sliced array
+const myn1 = myArr.slice(1, 3)     //slice method does not affect the original array but returns the sliced array excluding the ending position 
 
 console.log(myn1);
 console.log("B ", myArr);
 
 
-const myn2 = myArr.splice(1, 3)     //splice method changes the original array as well and returns the spliced array as well to
+const myn2 = myArr.splice(1, 3);     //splice method changes the original array as well and returns the spliced array as well too including the ending position.
 console.log(myn2);
 console.log("C ", myArr);
 
