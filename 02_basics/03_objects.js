@@ -17,6 +17,8 @@ const JsUser = {
     isLoggedIn: false,
     lastLoginDays: ["Monday", "Saturday"]
 }
+// in case of object keys are stored in the form of string (like this -> "name") in the background, whether you write them inside the double quotes or not.
+// that is why they can be accessed like this object_name["key_name"]. Also, we can say that this is the more correct way of accessing the keys of an object.
 
 console.log(JsUser.email)
 console.log(JsUser["email"])    //email key can be accessed like this as well
@@ -48,7 +50,8 @@ JsUser.greeting = function(){
     console.log("Hello JS user");
 }
 JsUser.greetingTwo = function(){
-    console.log(`Hello JS user, ${this.name}`);
+    // console.log(`Hello JS user, ${this.name}`);
+    console.log(`Hello JS user, ${this["full name"]}`);
 }
 
 console.log(JsUser.greeting());

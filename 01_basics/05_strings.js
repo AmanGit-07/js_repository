@@ -32,6 +32,10 @@ console.log(url.replace('%20', '-'))    //https://hitesh.com/hitesh-choudhary
 
 console.log(url.includes('sundar'))
 
-console.log(gameName.split('-'));
+console.log(gameName.split('-'));   //returns an array of splitting substrings
 
 console.log(url);       //https://hitesh.com/hitesh%20choudhary
+
+// Strings are immutable in js, that means you cannot change/modify the original string once they are created in javascript, Therefore, splice() method is not aaplicable with strings in js, it'll through an error: str.splice is not a function;
+
+// str.splice(6,17);    //throws an error
