@@ -25,9 +25,17 @@ const obj1 = {1: "a", 2: "b"}
 const obj2 = {3: "a", 4: "b"}
 const obj4 = {5: "a", 6: "b"}
 
-// const obj3 = { obj1, obj2 }  //method 1 of defining it 
+// const obj3 = { obj1, obj2 }  //method 1 of defining it // Note: this'll give nested objects
 // obj3 = Object.assign({}, obj1, obj2, obj4)  //method 2 of defining it using assign
 // console.log(obj3);
+// Object.assign() mai first object joki typped hota hai wo target object hota hai and baki ke jo bhi hote hai wo source hote hai, matlab sab combine hoke first mai store hote hai and here hum assign ka output hi obj3 mai store krwa rhe hai islie obj3 = obj1 below case mai, jaha empty object as a target nahi hai
+// obj3 = Object.assign(ob1, obj2, obj4)
+                    //   ^
+//                       |
+//                     target === obj3 (would be having same set of keys and values therefore obj3 is modified with this); 
+// IN SHORT ASSIGN SE HUM SARE SOURCE KO TARGET MAI ADD KR SKTE HAI TARGET KI VALUES KE SATHH INCLUDING.
+// OR AGAR IS ASSIGN KO KISI ANOTHER OBJECT MAI STORE KR RHE HAI TO WO ANOTHER OBJECT ASSIGN KE TARGET KE EQUAL HOJAYGA
+
 
 const obj3 = {...obj1, ...obj2}     //method 3 of defining it using spread operators
 // console.log(obj3);
@@ -55,6 +63,7 @@ console.log(Object.keys(tinderUser));       //[ 'id', 'name', 'isLoggedIn' ]
 console.log(Object.values(tinderUser));     //[ '123abc', 'Sammy', false ]
 console.log(Object.entries(tinderUser));    //[ [ 'id', '123abc' ], [ 'name', 'Sammy' ], [ 'isLoggedIn', false ] ]
 
+// obj_name.hasOwnProperty('key_name');
 // console.log(tinderUser.hasOwnProperty('isLoggedIn'));    //will tell whether this property is available or not true or false
 
 // +++++++++++++++++++OBJECT DESTRUCTURING++++++++++++++++++++++
@@ -78,10 +87,12 @@ console.log(instructor);                    //of expression 2
 // const navbar=({companyName})=>{ //here we are destructring the companyName 
 
 // };
-// navbar(company="Name");     //here we are passing the company name key of an object 
+// navbar({company="Name"});     //here we are passing the company name key of an object 
 
 
 // API comes in this format called json which is actually an object type
+// JSON file hi ek object ke form mai data store krti hai, or object mai hum keys ko "" mai likhe ya na likhe same thing hota hai, isilie JSON file mai keys ko "" quotes mai likha hai still no problem, & 
+// JSON mai data is format mai store hota hai.
 // {
 //     "name": "hitesh",
 //     "coursename": "js in hindi",
@@ -95,6 +106,7 @@ console.log(instructor);                    //of expression 2
 ]
 
 // url of the API: 'https://randomuser.me/api/'
+// API/JSON FORMAT ka example hai
 // A sample API example
 // {
 //   "results": [

@@ -38,6 +38,7 @@ console.log(myn1);
 console.log("B ", myArr);
 
 
+// splice is used only with the array and cannot be used with strings.
 const myn2 = myArr.splice(1, 3);     //splice method changes the original array as well and returns the spliced array as well too including the ending position.
 console.log(myn2);
 console.log("C ", myArr);
