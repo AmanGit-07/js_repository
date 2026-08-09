@@ -89,6 +89,17 @@ console.log(instructor);                    //of expression 2
 // };
 // navbar({company="Name"});     //here we are passing the company name key of an object 
 
+// another example of object destructuring inside a function parameter in react
+const navbar = ({"full name": g}) => {
+    return `this is function & with props ${g}`;
+};
+
+console.log(navbar({
+    "full name": "Aman Bhatia",
+    age: 25,
+    email: "amanbhatia43a@gmail.com"
+}));
+
 
 // API comes in this format called json which is actually an object type
 // JSON file hi ek object ke form mai data store krti hai, or object mai hum keys ko "" mai likhe ya na likhe same thing hota hai, isilie JSON file mai keys ko "" quotes mai likha hai still no problem, & 

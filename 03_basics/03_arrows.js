@@ -18,12 +18,12 @@ console.log("this keyword",this);           //this will give empty object becaus
 
 
 
-// function chai(){
-//     let username = "hitesh"
-//     // console.log(this.username);     //you cannot access the variable using this keyword inside a function
-//     console.log(this)           //but it will give a global object here this means this has some value in a func
-// }
-// chai()
+function chaiTwo(){
+    let username = "hitesh"
+    // console.log(this.username);  //you cannot access the variable using this keyword inside a function
+    console.log("TTHHIISSSSSSSSS-->>>",this)    //but it will give a global object here this means this has some value in a func
+}
+chaiTwo()
 
 
 // here we are actually declaring the function in a variable as an anonymous function
@@ -31,13 +31,14 @@ const chai = function () {
     let username = "hitesh"
     console.log(this.username);
 }
-// chai() this will give undefined because chai is a variable actually that stores anonymous function
-console.log(chai)
+// username ek local variable hai jo sirf function ke lexical scope ke andar available hai. Jab hum this.username likhte hain, JavaScript local variable ko access nahi karta. this.username ka matlab hai "current object ki username property". Kyunki this jis object ko refer kar raha hai usme username property nahi hai, isliye output undefined aata hai.
+console.log(chai);
+
 
 
 // const chai =  () => {
 //     let username = "hitesh"
-//     console.log(this);      //{} this will give empty object as an output because we cannot access 'this' inside arrow function here
+//     console.log(this);      //{} this will give empty object as an output because we cannot access 'this' inside this(arrow) function here for the same reasons as above
 // }
 // chai()
 

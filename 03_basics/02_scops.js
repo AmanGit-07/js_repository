@@ -52,7 +52,11 @@ function addone(num){
 
 // but here we've hoisted addTwo() function in a variable that is why we cannot access the function before the declaration of the function that is why it will give error
 // addTwo(5)
-const addTwo = function(num){
-    return num + 2
+const addTwo = function(num){   //ise hum expressions kehte hai
+    return num + 2  // ----------------- JS mai varaibles very powerfull can hold anything (func, val, etc.)
 }
 console.log(addTwo(5))
+
+
+// in case of above two functions addOne and addTwo we've tried to use the functions before their initialization, but got error in case of addTwo(), why so this is because of hoisting.
+// matlab agar function ko initialize krdia kisi variable ke sath to hum use uske baad hi call kr skte hai or agar normally define hi kia hai to use uski definition se pehle use kr skte hai.
