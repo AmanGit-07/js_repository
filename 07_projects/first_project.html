@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project One</title>
+    <style>
+      body {
+        background-color: aquamarine;
+      }
+      .boxes {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .button {
+        height: 100px;
+        width: 100px;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+      }
+      #white {
+        background-color: white;
+      }
+      #black {
+        background-color: black;
+        color: white;
+      }
+      #yellow {
+        background-color: yellow;
+      }
+      #red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <button type="button" class="button" id="white">white</button>
+      <button type="button" class="button" id="black">black</button>
+      <button type="button" class="button" id="yellow">yellow</button>
+      <button type="button" class="button" id="red">red</button>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".button");
+      const body = document.querySelector("body");
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function (e) { //Jab koi event fire hota hai, browser ek event object create/provide karta hai jisme us event se related information hoti hai. Hum callback function ke parameter ke through us event object ko access karke event ke according kaam kar sakte hain.
+          body.style.backgroundColor = e.target.id;
+        });
+      });
+    </script>
+  </body>
+</html>

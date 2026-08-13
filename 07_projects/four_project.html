@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project four</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="inputt">
+        <button type="button" id="btn">Submit</button>
+    </form>
+    <div class="previous_guesses"></div>
+    <div class="result"></div>
+
+    <script type="text/javascript">
+        let random = Math.ceil((Math.random())*100);
+        // console.log(random);
+        let counter = 10;
+
+        const inp = document.querySelector('#inputt');
+        const result = document.querySelector('.result');
+        const btn = document.querySelector('#btn');
+        const pg = document.querySelector('.previous_guesses');
+
+        document.querySelector('#btn').addEventListener("click", (e) => {
+            let value = parseInt(inp.value);
+            if(counter > 0){
+                if(value === random){
+                    result.innerHTML=`You Won.`;
+                    inp.disabled = true;
+                    btn.disabled = true;
+                } else if(value > random) {
+                    result.innerHTML=`Entered value is higher, attempts left ${counter}.`;
+                    counter === 10 ? pg.innerHTML +=`${value}` : pg.innerHTML +=`, ${value}`;
+                } else {
+                    result.innerHTML=`Entered value is lower, attempts left ${counter}.`;
+                    counter === 10 ? pg.innerHTML +=`${value}` : pg.innerHTML +=`, ${value}`;
+                }
+            }else {
+                result.innerHTML=`Attempts exhausted & actual value was ${random}.`;
+                inp.disabled = true;
+                btn.disabled = true;
+            }
+            counter--;
+        });
+    </script>
+</body>
+</html>
