@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Two</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="height">Height</label>
+      <input type="text" id="height" placeholder="type height" />
+      <label for="weight">Weight</label>
+      <input type="text" id="weight" placeholder="type weight" />
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+      const form = document.querySelector("form");
+      console.log(form);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const height = parseInt(document.querySelector("#height").value);
+        const weight = parseInt(document.querySelector("#weight").value);
+        const results = document.querySelector("#result");
+
+        if (height === "" || height < 0 || isNaN(height)) {
+          results.innerHTML = `Please give a valid height ${height}`;
+        } else if (weight === "" || weight < 0 || isNaN(weight)) {
+          results.innerHTML = `Please give a valid weight ${weight}`;
+        } else {
+          const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+          //show the result
+          results.innerHTML = `<span>${bmi}</span>`;
+        }
+      });
+    </script>
+  </body>
+</html>
