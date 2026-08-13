@@ -22,7 +22,7 @@
     addLanguage("python")
     addLanguage("typescript")
 
-    // here's the optimized approach to do so, Here we are using the createTextNode to create a text node and append the text node instead of using innerHTML. It reduces the time of traversing the whole tree.
+    // here's the optimized approach to do so, Here we are using the "createTextNode" to create a text node and append the text node instead of using "innerHTML". It reduces the time of traversing the whole tree.
     function addOptiLanguage(langName){
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName));

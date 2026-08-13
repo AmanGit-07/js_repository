@@ -64,3 +64,24 @@
       </script>
   </body>
 </html>
+
+
+<!-- 
+DOM SUMMARY :-
+So simplest way to remember:
+
+window → browser ka global object
+document → current webpage ka document
+DOM → document ka object/tree representation jiske through HTML elements ko access/manipulate kar sakte hain
+
+Ek important correction: document aur DOM exactly same cheez nahi hain. document DOM ka ek major/root object hai, while DOM ek programming interface/model hai jo document ko objects/nodes ke tree ke form mein represent karta hai.
+
+Properties ki SUMMARY :-
+innerText = displays only the innertext written inside the element
+innerContent = displays all the text whether it is hidden or not
+innerHtml = displays all the tags, elements, and texts written inside the element
+*> document.querySelector('ul'), document.querySelector('#id'), document.querySelector('.class'), document.querySelectorAll('.list-item')
+*> document.getElementById('title')
+*> document.getElementByClassName('class_name')
+Nodelist and HtmlCollection both are the inbuilt objects & not the array, they can be converted into an array with the help of Array.from(NODELIST/HTMLCOLLECTION).
+-->
