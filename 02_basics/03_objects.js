@@ -51,7 +51,7 @@ JsUser.greeting = function(){
 }
 JsUser.greetingTwo = function(){
     // console.log(`Hello JS user, ${this.name}`);
-    console.log(`Hello JS user, ${this["full name"]}`);
+    console.log(`Hello JS user, ${this["full name"]}`); //ye jo this keyword hai wo us object ko refer krega jismai ye grretingTwo() function banaya gaya hai i.e., JsUser
 }
 
 console.log(JsUser.greeting());
@@ -69,3 +69,36 @@ console.log(JsUser);    //{
                         //     [Symbol(key1)]: 'mykey1'
                         //   }
                         // as you can see now the greeting() and greetingTwo() methods has been added inside the object user
+
+
+// another example of using this keyword in nested object and assigning a function after declaring an object
+const user = {
+    name: {
+        firstname: "Aman",
+        "last name": "Bhatia"
+    },
+    age: 25,
+    email: "amanbhatia43a@gmail.com"
+};
+
+const userMore = {...user, gender: "Male"};
+
+console.log(userMore);
+user.getDetails = function({age: a}){
+
+    switch(a){
+        case 24: console.log("Age is 24.");
+                 break;
+        case 25: console.log("Age is 25.");
+                 break;
+        default: console.log("Age is neither 24 nor 25.");
+                 break;
+    }
+    if(this === user){
+        return `User name is ${this["name"]["firstname"]} ${this.name["last name"]} & ${this === user}.`;
+    }
+    return `Another object.`;
+};
+
+console.log(user);
+console.log(user.getDetails(userMore));
