@@ -39,3 +39,11 @@ for (const key in programming) {
 // for (const key in map) {
 //     console.log(key);
 // }
+
+
+/*
+SUMMARY :-
+& for in loop mai hum bas key ko access kr skte hai
+In case of for in loop works only with -> Object, array(somehow)
+map is not iterable islie for in loop nahi chalta usmai
+*/
