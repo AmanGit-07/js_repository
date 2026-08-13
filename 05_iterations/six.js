@@ -53,3 +53,10 @@ userBooks = books.filter( (bk) => {
   return bk.publish >= 1995 && bk.genre === "History"
 })
 console.log(userBooks);
+
+
+/*
+SUMMARY :-
+filter() method returns the new modified array without changing the original array..
+Also, for this you must return something/some value in the new modified array, else it'll give empty array.
+*/

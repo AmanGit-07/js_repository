@@ -55,3 +55,10 @@ const myObject = {
 //     console.log(key, ':-', value);
     
 // }
+
+
+// SUMMARY :-
+/*
+for of loop is used with -> ARRAY, STRING, MAP
+for in loop is used with -> OBJECT
+*/

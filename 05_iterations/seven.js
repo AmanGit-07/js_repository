@@ -9,3 +9,9 @@ const newNums = myNumers
                 .filter( (num) => num >= 40)
 
 console.log(newNums);
+
+/*
+SUMMARY :-
+map() method modifies the values of original array and returned them into a new array, without affecting the original array.
+suitable for mathematical calculations & modifieng the values of an array.
+*/

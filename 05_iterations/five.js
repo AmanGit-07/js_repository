@@ -39,3 +39,10 @@ myCoding.forEach( (item) => {
     
     console.log(item.languageName);
 } )
+
+/*
+SUMMARY :-
+forEach( function(){} ) -> method ke andr jo fun hai it's called callback func().
+& hum callback function ka name nahi dete kabhi bhi, agar wo bahr defined ho to uska ref pass krdete only.
+& this forEach() method does not return any value, even if you tries to return something it'll still give undefined. 
+*/
