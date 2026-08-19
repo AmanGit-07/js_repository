@@ -20,8 +20,8 @@
       console.log(form);
 
       form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const height = parseInt(document.querySelector("#height").value);
+        e.preventDefault(); //parseInt() reads the string from the beginning and keeps converting characters as long as they form a valid integer.
+        const height = parseInt(document.querySelector("#height").value); //ParseInt() if i/p -> 164as, returns -> 164
         const weight = parseInt(document.querySelector("#weight").value);
         const results = document.querySelector("#result");
 
