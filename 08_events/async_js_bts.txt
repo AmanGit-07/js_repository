@@ -1,0 +1,2 @@
+to understand about js how it works with api's or setTimeout's asynchronously watcha vdo no. = 37.
+prerequisites = watch prvs vdos of call stack and execution context.

@@ -38,7 +38,7 @@
 
     // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("owl clicked");
-    //     e.stopPropagation()          // here we are stopping the propagation of the events weather it is bubbling or capturing
+    //     e.stopPropagation()       // here we are stopping the propagation of the events weather it is bubbling/capturing
     // }, false)
     
     // document.getElementById('google').addEventListener('click',function(e){
@@ -53,7 +53,7 @@
         console.log(e.target.tagName);
         if (e.target.tagName === 'IMG') {
             console.log(e.target.id);
-            let removeIt = e.target.parentNode;
+            let removeIt = e.target.parentNode; //also, can do e.target.remove(), sirf target ko remove krta joki LI hai.
             removeIt.remove();
         }
     })
@@ -62,5 +62,33 @@
     // previously, we were using the parentNode to delete the list of the image it is inside of but because of this if we click on li it will delete the parentNode which is ul to prevent this we used tagName property to access the child you wants to remove.
     // console.log(e.target.parentNode);
     //removeIt.parentNode.removeChild(removeIt)
+
+
+    /*
+    NOTE FOR PROPAGATION:
+
+    -> addEventListener() ka third parameter true/false decide karta hai
+    ki us particular element ka listener kis phase mein execute hoga.
+
+    -> true  = capturing phase
+    false = bubbling phase
+
+    -> Agar LI par click hua:
+
+    Capturing:
+    window → document → html → body → ul → li
+
+    Bubbling:
+    li → ul → body → html → document → window
+
+    -> Sirf LI par true lagane se event capturing nahi hota.
+    LI ka true sirf LI ke listener ko capturing/target phase ke
+    context mein affect karta hai.
+
+    -> Agar UL ka listener capturing phase mein chalana hai,
+    to UL par true lagana hoga:
+
+    ul.addEventListener("click", handler, true);
+    */
 </script>
 </html>
