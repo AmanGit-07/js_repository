@@ -33,7 +33,7 @@ const promiseThree = new Promise(function(resolve, reject){
 })
 
 promiseThree.then(function(user){
-    console.log(user);
+    console.log("Promise three is resolved -> ",user);  //full object will be passed here as passed in the resolve object.
 })
 
 
@@ -52,15 +52,17 @@ const promiseFour = new Promise(function(resolve, reject){
 promiseFour
 .then((user) => {
     console.log(user);
-    return user.username
-}).then((username) => {
+    return user.username    //iska return next then ka parameter jataa hai
+}).then((username) => {     //therefore, yaha pe user.username = username hai
     console.log(username);
-}).catch(function(error){
+}).catch(function(error){   //ye to normally error handle krega
     console.log(error);
-}).finally(() => console.log("The promise is either resolved or rejected"))
+}).finally(() => console.log("The promise is either resolved or rejected")); //finally to chalega hi chalega jo kuch bhi ho
 
 
 
+
+// handling promise response with async & await
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(function(){
         let error = true
@@ -71,7 +73,7 @@ const promiseFive = new Promise(function(resolve, reject){
         }
     }, 1000)
 });
-
+// async & await mai hume try & catch block use krna padta hai
 async function consumePromiseFive(){
     try {
         const response = await promiseFive
@@ -80,14 +82,17 @@ async function consumePromiseFive(){
         console.log(error);
     }
 }
-
+// here, we are calling the function that is handling the resolve & reject of the promise
 consumePromiseFive()
 
+
+
+// example of using fetch api with async & await, with try & catch block.... 
 // async function getAllUsers(){
 //     try {
 //         const response = await fetch('https://jsonplaceholder.typicode.com/users')
 
-//         const data = await response.json()
+//         const data = await response.json()   //this works perfectly, bus yaha bhi await include krna padega wrna chalega nahi kyunki response data ko bhi json mai convert hone ke lie time lagta hai...
 //         console.log(data);
 //     } catch (error) {
 //         console.log("E: ", error);
