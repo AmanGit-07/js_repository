@@ -100,6 +100,17 @@ console.log(navbar({
     email: "amanbhatia43a@gmail.com"
 }));
 
+// if we use template literals to display the object in console window, than it'll give output like [object, object]
+// so we should normally call the object in the console window to display it in the console window
+// eg :-
+console.log(`template literal object -> ${course}`);
+console.log("normal calling the object in console window", course);
+/*  |
+    ^ output below of the above statements
+template literal object -> [object Object]
+normal calling the object in console window { coursename: 'js in hindi', price: '999', courseInstructor: 'hitesh' }
+ */
+
 
 // API comes in this format called json which is actually an object type
 // JSON file hi ek object ke form mai data store krti hai, or object mai hum keys ko "" mai likhe ya na likhe same thing hota hai, isilie JSON file mai keys ko "" quotes mai likha hai still no problem, & 

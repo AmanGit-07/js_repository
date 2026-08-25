@@ -27,14 +27,26 @@
   <script>
     // here we are using XMLHttRequest() to play with api this is an old way of doing it nowadays we use fetch
     const requestUrl = "https://api.github.com/users/hiteshchoudhary";
-    const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest(); //XMLHttpRequest() is the in-built class but here we are making the object of this class by adding a new keyword, to work with it;
+    console.log(xhr);
     xhr.open("GET", requestUrl);
     // this function fires up whenever the readystate changes of the given requestUrl
+    // means xhr request ki bhi state manage hoti hai joki humari onreadystatechange() method se pata chalti hai.
+    // ye method func leta hai joki batata hai ki jab state change ho to mujhe kya karna hai
     xhr.onreadystatechange = function () {
       console.log(xhr.readyState);
       if (xhr.readyState === 4) {
-        console.log(this.responseText);
-        const data = JSON.parse(this.responseText);
+        console.log(this.responseText); //this is ref to the xhr object here, due to the context of xhr object here.
+        const data = JSON.parse(this.responseText); //is used to convert a JSON-formatted string into its corresponding JavaScript value.
+        /*
+        example :- 
+        JSON.parse('{"name":"Aman"}')  // object
+        JSON.parse('[1, 2, 3]')        // array
+        JSON.parse('"Hello"')          // string
+        JSON.parse('123')              // number
+        JSON.parse('true')             // boolean
+        JSON.parse('null')             // null
+        */
         console.log(typeof data);
         console.log(data.followers);
         console.log(data.avatar_url);
@@ -48,3 +60,29 @@
     xhr.send();
   </script>
 </html>
+
+
+<!--
+  39th vdo of chai & js
+  SUMMARY :-
+  Initially, requests are sent using the XMLHttpRequest (XHR) object.
+  XMLHttpRequest is a built-in JavaScript API/constructor that is used
+  to create and manage HTTP requests.
+
+  We create an XHR object using:
+      const xhr = new XMLHttpRequest();
+
+  The xhr object has properties and methods such as:
+      open()      -> configures the request
+      send()      -> sends the request
+      readyState  -> represents the current state of the request
+      responseText -> contains the response received from the server
+
+  The onreadystatechange event handler is triggered whenever the
+  readyState of the xhr object changes, allowing us to perform an
+  action based on the current state.
+
+  For example:
+      if (xhr.readyState === 4)
+  means that the request has completed.
+-->
