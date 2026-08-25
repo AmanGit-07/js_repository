@@ -7,25 +7,48 @@
 </head>
 <body>
     <h1>Chai aur Javascript</h1>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
+    <!-- <button id="start">Start</button>
+    <button id="stop">Stop</button> -->
+
+    <button id="start" type="button">Start</button>
+    <button id="stop" type="button">Stop</button>
+    <p id="timer"></p>
 </body>
 <script>
     // in setInterval() method we have a third method which is actually a string you wants to pass to the callback function (here it is "hi").
-    const sayDate = function(str){
-        console.log(str, Date.now());
-    }
-    let intervalId;
-    document.querySelector('#start').addEventListener('click', function(){
+    // const sayDate = function(str){
+    //     console.log(str, Date.now());
+    // }
+    // let intervalId;
+    // document.querySelector('#start').addEventListener('click', function(){
 
-        intervalId = setInterval(sayDate, 1000, "hi");
-        console.log("start button clicked");
-    })
+    //     intervalId = setInterval(sayDate, 1000, "hi");
+    //     console.log("start button clicked");
+    // })
     
-    document.querySelector('#stop').addEventListener('click', function(){
-        clearInterval(intervalId);
-        console.log("stop button clicked");
-    })
+    // document.querySelector('#stop').addEventListener('click', function(){
+    //     clearInterval(intervalId);
+    //     console.log("stop button clicked");
+    // })
+
+    // MORE EFFECTIVE WAY OF DOING THE ABOVE CODE :-
+    // WHY ? -> Use the interval ID to ensure only one timer interval is active at a time,
+    // preventing multiple intervals from being created by repeated Start clicks.
+    let intervalId ;
+    document.querySelector('#start').addEventListener('click', () => {
+    document.querySelector('#timer').innerHTML = `   `;
+    if(!intervalId){
+        intervalId = setInterval( () => {
+        let date = new Date().toLocaleTimeString();
+        document.querySelector('#timer').innerHTML = `Current Timer - ${date}`;
+        }, 1000);
+    }
+    });
+
+    document.querySelector('#stop').addEventListener('click', () => {
+    clearInterval(intervalId);
+    intervalId = null;
+    });
 
 </script>
 </html>
