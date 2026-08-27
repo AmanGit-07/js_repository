@@ -56,7 +56,11 @@ arrow();
 function func2(us){
     us.gender = "Male";
     console.log("us object -> ", us);
-    us.addDetails = () => console.log(`we'll add some details in the user object`);
+    us.addDetails = (x) => {
+        us.salary = x
+        console.log(`we'll add some details in the user object`);
+        console.log(`value of x is ${x}`);
+    };
 }
 func2(user);
 console.log("original user object after function call is --->>> ", user);
@@ -72,6 +76,11 @@ function func3({age: g, ...obj}){
 }
 func3(user);
 console.log("original user object after func3() call is --->>> ", user);
+
+user.addDetails(100000);
+
+console.log("After calling addDetails:", user);
+console.log("Salary:", user.salary);
 
 
 
