@@ -69,7 +69,7 @@ function calculateCartPrice(val1, val2, ...num1){
     return num1
 }
 
-console.log(calculateCartPrice(200, 400, 500, 2000, 23, 232, 2343456))    //this will show{[ 500, 2000, 23, 232, 2343456 ]} because first two values has been stored in params val1, val2 and the rest of other args will be stored in rest operator num1 i.e., no matter how many args are getting passed after the first two params all will be stored in the form of array in num1 parameter with the help of rest operator
+console.log(calculateCartPrice(200, 400, 500, 2000, 23, 232, 2343456))    //this will show:[ 500, 2000, 23, 232, 2343456 ] because first two values has been stored in params val1, val2 and the rest of other args will be stored in rest operator num1 i.e., no matter how many args are getting passed after the first two params all will be stored in the form of array in num1 parameter with the help of rest operator
 // though it is a spread operator actually but it depends on its usecase that how it is used inside the code, here it is using as rest operator and accumulating all the data or the args in it in a single array
 
 // another example of rest operators
