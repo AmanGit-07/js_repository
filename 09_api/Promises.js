@@ -14,6 +14,7 @@ promiseOne.then(function(){
 
 
 // this is another way of makin a promise (i.e., without storing it in the variable)
+// this will execute automatically after one second once the page loads
 new Promise(function(resolve, reject){
     setTimeout(function(){
         console.log("Async task 2");

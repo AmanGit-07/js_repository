@@ -82,7 +82,20 @@ user.addDetails(100000);
 console.log("After calling addDetails:", user);
 console.log("Salary:", user.salary);
 
+function func4(username = "John"){
+    let varaible = username;
+    return console.log(varaible);
+}
+func4();    //o/p -> John
+func4("Samson"); //o/p -> Samson
 
-
-
+const result = function func(a,b){
+    return a+b;
+}
+// func(10,20); //this will give error because: func, when used here, is the function expression's internal name and is not normally available outside the function.
+console.log(result(10,20));
+/*
+result is the variable/reference through which you call the function.
+Also, technically result isn't the "calling function". The function is the value stored in result; result is a reference to that function
+ */
 
