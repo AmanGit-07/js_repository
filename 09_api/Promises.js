@@ -113,3 +113,30 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 
 // promise.all
 // yes this is also available, kuch reading aap b kro.
+
+
+// example of promise 
+new Promise( (resolve, reject) => {
+    const res = true;
+    setTimeout( () => {
+        if(res){
+            resolve(user);
+        } else {
+            reject(`Promise rejected..`);
+        }
+    }, 1000);
+})
+.then( function(user){
+    console.log(`user has been fetched.`);
+    return user["name"];
+})
+.then( function(username){
+    console.log(`username has been fetched`);
+    return username["firstname"];
+})
+.then( function(name){
+    console.log(`${name} is the first name of the user`);
+})
+.catch( function(error){
+    console.log(error);
+});

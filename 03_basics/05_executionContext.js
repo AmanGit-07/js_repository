@@ -25,6 +25,9 @@ STEP 8 :- execution end
 JS Call stack
 -> LIFO 
 -> global exec, one(), two(), two() removed, one() removed, then GEC removed
+
+JS is a single threaded language that means it executes in a single line from top to bottom.
+means each operation waits for the last one to complete before executing
 */
 
 let val1 = 10;
