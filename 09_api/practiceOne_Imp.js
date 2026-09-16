@@ -99,3 +99,87 @@ result is the variable/reference through which you call the function.
 Also, technically result isn't the "calling function". The function is the value stored in result; result is a reference to that function
  */
 
+
+
+
+// promise examples 
+// const user = {
+//     name: {
+//         firstname: "Aman",
+//         lastname: "Bhatia"
+//     },
+//     age: 25,
+//     email: "amanbhatia43a@gmail.com"
+// }
+
+// const pobj = new Promise( function(resolve, reject){
+//     let error = false;
+//     setTimeout( () => {
+//         if(!error){
+//             resolve(user);
+//         } else {
+//             reject(`Promise rejected.`);
+//         }
+//     })
+// });
+
+// pobj
+// .then( function(obj){
+//     console.log(obj);
+// })
+// .catch( function(er){
+//     console.log(er);
+// })
+// .finally( function(){
+//     console.log(`function executed.`)
+// });
+
+// new Promise( function(resolve, reject){
+//     let error = false;
+//     setTimeout( () => {
+//         if(!error){
+//             resolve(user);
+//         } else {
+//             reject(`Promise rejected.`);
+//         }
+//     })
+// }).then( function(obj){
+//     console.log(obj);
+//     return obj["name"];
+// })
+// .then( function(name){
+//     console.log(name);
+//     return name["firstname"];
+// })
+// .then( function(name){
+//     console.log(name);
+//     return name;
+// })
+// .catch( function(er){
+//     console.log(er);
+// })
+// .finally( function(){
+//     console.log(`function executed.`)
+// });
+
+const pobj = new Promise( function(resolve, reject){
+    let error = false;
+    setTimeout( () => {
+        if(!error){
+            resolve(user);
+        } else {
+            reject(`Promise rejected.`);
+        }
+    }, 1000);
+});
+
+async function consumePromise(){
+    try {
+        const result = await pobj;
+        console.log(result);
+    } catch (er) {
+        console.log(er);
+    }
+}
+consumePromise();
+
