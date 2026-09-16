@@ -140,3 +140,6 @@ new Promise( (resolve, reject) => {
 .catch( function(error){
     console.log(error);
 });
+
+// SUMMARY / IMP :-
+// fetch() → Promise deta hai → await us Promise ke resolved result ko lene ke liye use hota hai.
