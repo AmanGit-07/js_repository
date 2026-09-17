@@ -142,4 +142,121 @@ new Promise( (resolve, reject) => {
 });
 
 // SUMMARY / IMP :-
+// To know about fetch watch vid = 41
 // fetch() → Promise deta hai → await us Promise ke resolved result ko lene ke liye use hota hai.
+// The Fetch API provides an interface for fetching resources(means data) (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest.
+
+// working of fetch
+/*
+Haan, **concept roughly aisa samajh sakte ho**, but ek important correction hai: **`fetch()` ke liye koi separate "priority queue" nahi hoti** jise browser hamesha normal task queue se pehle execute kare.
+
+Easy way mein:
+
+### 🧠 JavaScript ko ek waiter samjho
+
+JavaScript ka **main thread** ek waiter hai jo ek time par ek hi kaam karta hai.
+
+Tumne 3 kaam diye:
+
+```js
+setTimeout(() => {
+  console.log("Timer");
+}, 0);
+
+fetch("/api")
+  .then(() => {
+    console.log("Fetch");
+  });
+
+console.log("Normal");
+```
+
+Pehle synchronous kaam:
+
+```text
+JavaScript
+   ↓
+console.log("Normal")
+   ↓
+Normal
+```
+
+Uske baad asynchronous kaam complete hone par unke callbacks queues mein aate hain.
+
+### `fetch()` ka actual flow
+
+`fetch()` khud browser/Node ke networking system ko request de deta hai:
+
+```text
+fetch()
+  ↓
+Browser/Node networking
+  ↓
+Request complete hone ka wait
+  ↓
+.then() callback queue mein
+```
+
+Aur:
+
+```text
+setTimeout()
+   ↓
+Timer system
+   ↓
+Timer complete
+   ↓
+callback queue mein
+```
+
+### ⚠️ Main difference
+
+Yahan ye mat socho:
+
+```text
+Priority Queue
+     ↓
+fetch()  ← hamesha pehle
+     
+Normal Queue
+     ↓
+setTimeout()
+setInterval()
+DOM events
+```
+
+Actually JavaScript mein **multiple types ki queues/microtask mechanisms** hoti hain, aur unki priority/order environment aur API ke according depend karti hai.
+
+Sabse important rule yaad rakho:
+
+```text
+Synchronous code (execute hoga)
+      ↓
+Microtasks         (ye execute honge)
+(Promise .then/.catch/.finally, queueMicrotask)
+      ↓
+Task / macrotask    (end mai ye execute honge agar teeno tasks sath mai execute hone hai to)
+(setTimeout, DOM events, etc.)
+```
+
+`fetch()` ka **Promise callback** (`.then()`) microtask hota hai **jab fetch complete ho jata hai**.
+
+So:
+
+```js
+fetch("/api").then(() => console.log("fetch"));
+
+setTimeout(() => console.log("timer"), 0);
+```
+
+Agar **fetch response already complete ho chuka hai** aur uska `.then()` microtask queue mein aa gaya hai, to microtask generally timer callback se pehle run hoga.
+
+### Ek line mein
+
+**`fetch()` ko priority queue mein directly mat samjho.**
+Instead yaad rakho:
+
+> `fetch()` ka network kaam background mein hota hai, aur response aane ke baad uska Promise callback **microtask queue** mein jaata hai. Microtasks ko JavaScript event-loop processing mein tasks (jaise `setTimeout`) se pehle process kiya jaata hai.
+
+Aur ek interesting point: **`fetch()` ka network operation aur `.then()` callback — dono ko same cheez mat samajhna.** `fetch()` network request hai; `.then()` us request ke complete hone ke baad execute hone wala Promise callback hai.
+*/
