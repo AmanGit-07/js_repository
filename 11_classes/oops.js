@@ -148,7 +148,7 @@ Function
  ↓
 can be called normally
        OR
-can be called with new
+can be called with new keyword
 ```
 
 Normal call:
@@ -260,4 +260,6 @@ So **"constructor function" isn't a separate function automatically created for 
 
 It's basically a **normal constructable function being used with `new`**.
 
+
+so matlab, hum ek normal function ko normally call kr skte hai & new keyword ke sath bhi call kr skte hai jise constructor function kehte hai. normal function mai koi new object nahi create hota balki constructor function call mai har baar new object create hota hai and this keyword us function ke andar uss newly created object ko call krta hai.
 */
